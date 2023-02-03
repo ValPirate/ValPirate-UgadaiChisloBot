@@ -1,23 +1,15 @@
 import random
-import os
-import dotenv
-
-
 from aiogram import Bot, Dispatcher
 from aiogram.types import Message
 from aiogram.filters import Text, Command
+from environs import Env
 
-dotenv.load_dotenv()
+env = Env()
+env.read_env()
 
-print(os.getenv('BOT_TOKEN'))
+BOT_TOKEN = env('BOT_TOKEN')
 
 
-
-# Вместо BOT TOKEN HERE нужно вставить токен вашего бота,
-# полученный у @BotFather
-BOT_TOKEN: str = '5915104849:AAEG-6KbQ-Xl_BAsWw1L91pF-pWlBlAA_TQ'
-
-# Создаем объекты бота и диспетчера
 bot: Bot = Bot(BOT_TOKEN)
 dp: Dispatcher = Dispatcher()
 
